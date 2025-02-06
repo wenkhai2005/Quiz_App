@@ -1,25 +1,34 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class AnswerButton extends StatelessWidget {
-  AnswerButton(this.answer, this.onTap, {super.key});
+  const AnswerButton({
+    super.key,
+    required this.answerText,
+    required this.onTap,
+  });
 
-  String answer;
-  void Function() onTap;
+  final String answerText;
+  final void Function() onTap;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onTap,
       style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 80),
-        backgroundColor: Color.fromARGB(255, 52, 16, 124),
+        padding: const EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 40,
+        ),
+        backgroundColor: const Color.fromARGB(255, 33, 1, 95),
         foregroundColor: Colors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(100),
+          borderRadius: BorderRadius.circular(40),
         ),
       ),
-      child: Text(answer),
+      child: Text(
+        answerText,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }
